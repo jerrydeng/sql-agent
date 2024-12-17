@@ -26,3 +26,12 @@ def test_complex_query(agent: SQLAgent):
     assert isinstance(result, str)
     # Rock should be the most common genre in Chinook
     assert "rock" in result.lower()
+
+def test_advanced_query(agent: SQLAgent):
+    """Test a more advanced query involving joins and subqueries."""
+    question = "Which artist sold the most tracks?"
+    result = agent.invoke(question)
+    assert result is not None
+    assert isinstance(result, str)
+    # Rock should be the most common genre in Chinook
+    assert "iron maiden" in result.lower()
